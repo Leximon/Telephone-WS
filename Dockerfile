@@ -11,6 +11,10 @@ RUN pnpm build
 
 # stage run
 FROM node:16-alpine
+
+ARG wallide
+ENV WALLIDE=$wallide
+
 WORKDIR /app
 COPY --from=0 /app/package*.json ./
 COPY --from=0 /app/pnpm*.yaml ./

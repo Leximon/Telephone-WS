@@ -1,0 +1,21 @@
+
+* {
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #2a2d31;
+}
+
+input {
+    border: 1px solid rgba(0, 0, 0, 0.164);
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    outline: none;
+
+    background: hsla(0, 0%, 0%, 0.2);
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+    transition: .15s ease-out;
+}
