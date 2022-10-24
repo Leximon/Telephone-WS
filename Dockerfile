@@ -13,7 +13,8 @@ RUN pnpm build
 FROM node:16-alpine
 WORKDIR /app
 COPY --from=0 /app/package*.json ./
-RUN pnpm install --frozen-lockfile --production --ignore-scripts
+RUN npm install -g pnpm
+RUN pnpm ci --frozen-lockfile --production --ignore-scripts
 RUN pnpm audit fix
 COPY --from=0 /app/build ./
 
