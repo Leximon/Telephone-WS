@@ -30,4 +30,4 @@
 
 <h2>Contact Us</h2>
 
-<p>If you have any questions or concerns about this privacy policy, please contact us via Email (<a href="mailto:leximon305@web.de">leximon305@web.de</a>) or by joining our Discord Server (<a href="https://discord.gg/MBnMhVz6AW">https://discord.gg/MBnMhVz6AW"</a>)</p>
+<p>If you have any questions or concerns about this privacy policy, please contact us joining our support server on Discord (<a href="https://discord.gg/MBnMhVz6AW">https://discord.gg/MBnMhVz6AW"</a>)</p>
