@@ -2,6 +2,10 @@
     export const prerender = true;
 </script>
 
+<svelte:head>
+    <title>Privacy Policy</title>
+</svelte:head>
+
 <h1>Privacy Policy for Telephone Bot</h1>
 
 <p>This privacy policy applies to the Telephone bot ("Telephone," "we," "us," or "our") and explains how we collect,

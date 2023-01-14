@@ -2,6 +2,10 @@
     export const prerender = true;
 </script>
 
+<svelte:head>
+    <title>Terms of Service</title>
+</svelte:head>
+
 <h1>Terms of Service for Telephone Bot</h1>
 
 <p>These terms of service ("Terms," "we," "us," or "our") govern your use of the Telephone bot ("Telephone," "the bot,"
