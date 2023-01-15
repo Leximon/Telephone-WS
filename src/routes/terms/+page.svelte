@@ -54,6 +54,5 @@
 <p>In no event shall Telephone, its affiliates, officers, employees, agents, suppliers or licensors be liable with
     respect to the service or the subject matter of this agreement under any contract, negligence, strict liability or
     other legal or equitable theory for: (I) any special, incidental or consequential damages; (II) the cost of
-    procurement or substitute products or services; (III) for interruption of use or loss or corruption of data; or (IV)
-    for any amounts that exceed the fees paid by you to Telephone.
+    procurement or substitute products or services; (III) for interruption of use or loss or corruption of data.
 </p>

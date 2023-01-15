@@ -30,8 +30,7 @@
 <h2>Data Retention and Deletion</h2>
 
 <p>The data associated with your use of Telephone is retained on our servers for as long as you or your server continues
-    to use the bot. If you or the server "kicks" the bot, this data will be deleted from our servers. If you wish to
-    delete your data before that, please contact us.</p>
+    to use the bot. If you or the server "kicks" the bot, this data will be deleted from our servers.</p>
 
 <h2>Changes to this Privacy Policy</h2>
 
