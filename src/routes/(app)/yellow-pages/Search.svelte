@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { afterNavigate } from "$app/navigation";
+	import { browser } from "$app/environment";
+	import { afterNavigate, beforeNavigate } from "$app/navigation";
 	import type { DiscordLocale } from "$lib/types";
 	import { createEventDispatcher } from "svelte";
 	import LocaleSelectMenu from "./LocaleSelectMenu.svelte";
@@ -10,9 +11,15 @@
     export let locale: DiscordLocale | null = null;
     let searchInput: HTMLInputElement;
     let newLocale = locale;
-
-    afterNavigate(e => {
-        searchInput.focus();
+    
+    let wasFocused = false;
+    beforeNavigate(() => {
+        if(browser)
+            wasFocused = document.activeElement == searchInput
+    });
+    afterNavigate(() => {
+        if (wasFocused)
+            searchInput.focus();
     });
 
     function onLocaleSelect(e: CustomEvent<{locale: DiscordLocale | null}>) {
