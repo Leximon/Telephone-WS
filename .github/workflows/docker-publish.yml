@@ -15,7 +15,6 @@ on:
 
 env:
   IMAGE_NAME: telephone_ws
-  DB_CONN_STRING: ${{ secrets.DB_CONN_STRING }}
 
 jobs:
   # Push image to GitHub Packages.
