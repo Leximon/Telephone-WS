@@ -6,7 +6,7 @@ COPY . .
 RUN npm install -g pnpm
 RUN pnpm install --frozen-lockfile
 RUN pnpm audit fix
-RUN pnpm build
+RUN DB_CONN_STRING=$DB_CONN_STRING pnpm build
 
 
 # stage run
