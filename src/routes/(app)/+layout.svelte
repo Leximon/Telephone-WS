@@ -3,9 +3,12 @@
 
 <div class="center">
     <div>
-        <slot/>
+        <div class="mx-4">
+            <slot/>
+        </div>
         <div class="footer">
             <a href="/privacy" data-sveltekit-preload-data>Privacy</a>
+            <a href="/yellow-pages" data-sveltekit-preload-data>Yellow Pages</a>
             <a href="/terms" data-sveltekit-preload-data>Terms of Service</a>
         </div>
     </div>
