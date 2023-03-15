@@ -18,7 +18,8 @@ COPY --from=0 /app/pnpm*.yaml ./
 RUN npm install -g pnpm
 RUN pnpm install --frozen-lockfile --production --ignore-scripts
 RUN pnpm audit fix
+ENV DB_CONN_STRING=$DB_CONN_STRING
 COPY --from=0 /app/build ./
 
 EXPOSE 3000
-CMD ["node", "./index.js"]
+CMD node ./index.js
