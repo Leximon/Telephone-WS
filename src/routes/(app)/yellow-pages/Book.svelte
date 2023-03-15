@@ -40,11 +40,11 @@
 		<p>Telephone</p>
 	</div>
 	<div class="bg p-2 rounded-lg lg:rounded-l-none border-stone-800 w-full max-w-2xl relative shadow-xl">
+		<div id="navbar">
+			<NavBar {page} {totalPages} on:flip />
+		</div>
 		<div class="overflow-y-auto p-1">
 			{#key entries}
-				<div id="navbar">
-					<NavBar {page} {totalPages} on:flip />
-				</div>
 				<div class="list [&_p]:max-md:text-xs [&_*]:text-gray-800 [&_*]:font-mono [&>div]:flex [&>div]:items-center" in:fade={{ duration: 400 }}>
 					<div class="border-b border-gray-400"/>
 					<div class="border-b border-gray-400">
