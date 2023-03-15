@@ -31,7 +31,7 @@
                     <p class="text-sm max-sm:text-xs text-gray-800 text-left">{getLocaleValue(locale).name}</p>
                 </div>
             {:else}
-                <p class="text-xl max-sm:text-base text-gray-400">Locale</p>
+                <p class="text-xl max-sm:text-base text-gray-400">Language</p>
             {/if}
             <i class="fa-solid fa-caret-down text-base text-gray-400 ml-2 duration-150" class:fa-rotate-180={open}></i>
         </div>
