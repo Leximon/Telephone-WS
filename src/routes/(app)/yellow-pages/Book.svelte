@@ -27,10 +27,10 @@
 		return builder.reverse().join('');
 	}
 
-	function asIconUrl(id: string, icon: string) {
+	function asIconUrl(id: string, icon: string | null) {
 		return `https://cdn.discordapp.com/icons/${id}/${icon}.${
-			icon.startsWith('a_') ? 'gif' : 'png'
-		}?size=128`;
+			icon?.startsWith('a_') ? 'gif' : 'png'
+		}?size=64`;
 	}
 </script>
 
