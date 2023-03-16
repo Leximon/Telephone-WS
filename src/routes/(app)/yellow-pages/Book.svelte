@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { getLocaleValue, type GuildYellowPage } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import LoadingIcon from './LoadingIcon.svelte';
 	import NavBar from './NavBar.svelte';
@@ -28,33 +27,26 @@
 		return builder.reverse().join('');
 	}
 
-	function asIconUrl(id: string, icon: string) {
+	function asIconUrl(id: string, icon: string | null) {
 		return `https://cdn.discordapp.com/icons/${id}/${icon}.${
-			icon.startsWith('a_') ? 'gif' : 'png'
-		}?size=128`;
+			icon?.startsWith('a_') ? 'gif' : 'png'
+		}?size=64`;
 	}
 </script>
 
 <div class="flex justify-center m-1 mt-1">
-	<div
-		class="bg-edge max-lg:hidden rounded-l-lg p-2 flex flex-col-reverse justify-center border-l-8 border-black border-opacity-10 z-10 shadow-xl"
-	>
+	<div class="bg-edge max-lg:hidden rounded-l-lg p-2 flex flex-col-reverse justify-center border-l-8 border-black border-opacity-10 z-10 shadow-xl">
 		<TelephoneIcon />
 		<p>Telephone</p>
 	</div>
-	<div
-		class="bg p-2 rounded-lg lg:rounded-l-none border-stone-800 w-full max-w-2xl relative shadow-xl"
-	>
+	<div class="bg p-2 rounded-lg lg:rounded-l-none border-stone-800 w-full max-w-2xl relative shadow-xl">
+		<div id="navbar">
+			<NavBar {page} {totalPages} on:flip />
+		</div>
 		<div class="overflow-y-auto p-1">
 			{#key entries}
-				<div id="navbar">
-					<NavBar {page} {totalPages} on:flip />
-				</div>
-				<div
-					class="list [&_p]:max-md:text-xs [&_*]:text-gray-800 [&_*]:font-mono [&>div]:flex [&>div]:items-center"
-					in:fade={{ duration: 400 }}
-				>
-					<div class="border-b border-gray-400" />
+				<div class="list [&_p]:max-md:text-xs [&_*]:text-gray-800 [&_*]:font-mono [&>div]:flex [&>div]:items-center" in:fade={{ duration: 400 }}>
+					<div class="border-b border-gray-400"/>
 					<div class="border-b border-gray-400">
 						<p class="mx-1">Name</p>
 					</div>
@@ -81,14 +73,8 @@
 			{/key}
 		</div>
 		{#if loading}
-			<div
-				class="absolute top-2 left-2 bottom-10 right-2 bg-black bg-opacity-20 rounded-lg"
-				out:fade={{ duration: 400 }}
-			>
-				<div
-					class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-					out:scale={{ duration: 400 }}
-				>
+			<div class="absolute top-10 left-2 bottom-10 right-2 bg-black bg-opacity-20 rounded-lg" id="loading-bg" out:fade={{ duration: 400 }}>
+				<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" out:scale={{ duration: 400 }}>
 					<LoadingIcon />
 				</div>
 			</div>
@@ -135,6 +121,10 @@
 	@media not all and (max-height: 910px) {
 		#navbar {
 			display: none;
+		}
+
+		#loading-bg {
+			top: 0.5rem;
 		}
 	}
 </style>

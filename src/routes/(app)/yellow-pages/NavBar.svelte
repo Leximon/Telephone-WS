@@ -23,7 +23,7 @@
         <button on:click={() => dispatch("flip", 1)} class="group rounded-full hover:bg-opacity-20 hover:bg-black duration-150 disabled:bg-transparent disabled:cursor-default" disabled={page >= totalPages - 1}>
             <i class="fa-solid fa-angle-right text-stone-800 mx-2 group-disabled:text-stone-400"></i>
         </button>
-        <button on:click={() => dispatch("flip", totalPages - page)} class="group rounded-full hover:bg-opacity-20 hover:bg-black duration-150 disabled:bg-transparent disabled:cursor-default" disabled={page >= totalPages - 1}>
+        <button on:click={() => dispatch("flip", totalPages - page - 1)} class="group rounded-full hover:bg-opacity-20 hover:bg-black duration-150 disabled:bg-transparent disabled:cursor-default" disabled={page >= totalPages - 1}>
             <i class="fa-solid fa-angles-right text-stone-800 mx-2 group-disabled:text-stone-400"></i>
         </button>
     </div>
