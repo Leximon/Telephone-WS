@@ -36,13 +36,6 @@
     </div>
     <Book entries={data.yellowPages} page={data.page} totalPages={data.totalPages} on:flip={e => search(data.query, data.locale, e.detail)}/>
 </div>
-<div class="p-5 flex justify-center" style="background: rgb(189, 129, 0);">
-    <div class="w-full max-w-lg flex justify-evenly [&_a]:text-center">
-        <a href="/privacy" data-sveltekit-preload-data>Privacy</a>
-        <a href="/yellow-pages" data-sveltekit-preload-data>Yellow Pages</a>
-        <a href="/terms" data-sveltekit-preload-data>Terms of Service</a>
-    </div>
-</div>
 
 <style>
     .bg {
