@@ -39,7 +39,7 @@ export function getLocaleValue(locale: DiscordLocale) {
 
 export type GuildYellowPage = {
     id: string;
-    icon: string;
+    icon: string | null;
     locale: DiscordLocale;
     name: string;
 }
