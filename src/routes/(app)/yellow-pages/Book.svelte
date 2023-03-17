@@ -55,7 +55,11 @@
 					</div>
 					{#each entries as entry}
 						<div class="flex justify-center items-center border-b border-gray-400">
-							<img src={asIconUrl(entry.id, entry.icon)} alt="?" class="rounded-full w-5 h-5" />
+							{#if entry.icon}
+								<img src={asIconUrl(entry.id, entry.icon)} alt="?" class="rounded-full w-5 h-5" />
+							{:else}
+								<div></div>
+							{/if}
 						</div>
 						<div class="border-b border-gray-400 flex-row justify-between">
 							<p class="mx-1 text-ellipsis whitespace-nowrap overflow-hidden max-w-xs">
