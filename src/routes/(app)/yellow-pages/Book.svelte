@@ -60,7 +60,7 @@
 		</div>
 		<div class="overflow-y-auto p-1" style="height: 712px;">
 			{#key entries}
-				<table class="list [&_p]:max-md:text-xs [&_td]:max-md:text-xs [&_*]:text-gray-800 [&_p]:font-mono [&_td]:font-mono" in:fade={{ duration: 400 }}>
+				<table class="list w-full [&_p]:max-md:text-xs [&_td]:max-md:text-xs [&_*]:text-gray-800 [&_p]:font-mono [&_td]:font-mono" in:fade={{ duration: 400 }}>
 					<colgroup>
 						<col>
 						<col class="w-1/2">
@@ -118,20 +118,11 @@
 </div>
 
 <style>
-	.list {
-		/* display: grid;
-		grid-template-columns: 32px 1fr 1fr;
-		grid-template-rows: repeat(21, 1fr);
-		align-content: space-between; */
-		/* height: 672px; */
-		width: 100%;
-	}
-
 	.list > * {
 		height: 32px;
 	}
 
-	.list > :nth-child(2n) {
+	.list > :nth-child(2n+1):not(:first-child) {
 		background-color: rgba(0, 0, 0, 0.05);
 	}
 
