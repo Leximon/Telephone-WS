@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Centered from "$lib/components/Centered.svelte";
+
+
 
 </script>
 
@@ -6,9 +9,13 @@
     <title>Telephone - Talk Across Discord Servers</title>
 </svelte:head>
 
-<h1>Telephone Homepage</h1>
+<Centered>
+    <div>
+        <h1>Telephone Homepage</h1>
 
-<i>Work in progress...</i>
+        <i>Work in progress...</i>
+    </div>
+</Centered>
 
 <style>
 

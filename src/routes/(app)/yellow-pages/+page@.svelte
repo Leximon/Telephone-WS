@@ -4,6 +4,7 @@
 	import Search from './Search.svelte';
 	import Book from './Book.svelte';
 	import type { DiscordLocale } from '$lib/types';
+	import Footer from '$lib/components/Footer.svelte';
 
     export let data: PageData;
 
@@ -36,10 +37,17 @@
     </div>
     <Book entries={data.yellowPages} page={data.page} totalPages={data.totalPages} on:flip={e => search(data.query, data.locale, e.detail)}/>
 </div>
+<div class="footer">
+    <Footer/>
+</div>
 
 <style>
     .bg {
         background: rgb(234,138,8);
         background: linear-gradient(0deg, rgb(234, 155, 8) 0%, rgb(234, 188, 8) 80%);
+    }
+
+    .footer {
+        background: rgb(214, 142, 8);
     }
 </style>

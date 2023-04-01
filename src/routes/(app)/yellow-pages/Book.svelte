@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import { showError, showInfo } from '$lib/components/notification';
 	import { getLocaleValue, type GuildYellowPage } from '$lib/types';
 	import { fade, scale } from 'svelte/transition';
 	import LoadingIcon from './LoadingIcon.svelte';
@@ -11,8 +12,9 @@
 	export let totalPages: number = 0;
 	let loading = false;
 
-	beforeNavigate(() => {
-		loading = true;
+	beforeNavigate(e => {
+		if (e.to?.route?.id === e.from?.route?.id)
+			loading = true;
 	});
 	afterNavigate(() => {
 		loading = false;
@@ -32,6 +34,19 @@
 			icon?.startsWith('a_') ? 'gif' : 'png'
 		}?size=64`;
 	}
+
+	function copyNumber(id: string) {
+		if (!navigator.clipboard) {
+            showError("Your browser does not support clipboard copying!");
+            return;
+        }
+        navigator.clipboard.writeText(asPhoneNumber(id)).then(() => {
+            showInfo("Number copied to clipboard!");
+        }, e => {
+            showError("Failed to copy number to clipboard!");
+            throw e;
+        });
+	}
 </script>
 
 <div class="flex justify-center m-1 mt-1">
@@ -43,33 +58,52 @@
 		<div id="navbar">
 			<NavBar {page} {totalPages} on:flip />
 		</div>
-		<div class="overflow-y-auto p-1">
+		<div class="overflow-y-auto p-1" style="height: 712px;">
 			{#key entries}
-				<div class="list [&_p]:max-md:text-xs [&_*]:text-gray-800 [&_*]:font-mono [&>div]:flex [&>div]:items-center" in:fade={{ duration: 400 }}>
-					<div class="border-b border-gray-400"/>
-					<div class="border-b border-gray-400">
-						<p class="mx-1">Name</p>
-					</div>
-					<div class="border-b border-l border-gray-400">
-						<p class="mx-2">Number</p>
-					</div>
+				<table class="list [&_p]:max-md:text-xs [&_td]:max-md:text-xs [&_*]:text-gray-800 [&_p]:font-mono [&_td]:font-mono" in:fade={{ duration: 400 }}>
+					<colgroup>
+						<col>
+						<col class="w-1/2">
+						<col>
+						<col>
+					</colgroup>
+					<tr class="border-b border-gray-400">
+						<td></td>
+						<td>
+							<p class="mx-1">Name</p>
+						</td>
+						<td></td>
+						<td class="border-l border-gray-400">
+							<p class="mx-2">Number</p>
+						</td>
+						<td></td>
+					</tr>
 					{#each entries as entry}
-						<div class="flex justify-center items-center border-b border-gray-400">
-							<img src={asIconUrl(entry.id, entry.icon)} alt="?" class="rounded-full w-5 h-5" />
-						</div>
-						<div class="border-b border-gray-400 flex-row justify-between">
-							<p class="mx-1 text-ellipsis whitespace-nowrap overflow-hidden max-w-xs">
+						<tr class="border-b border-gray-400">
+							<td class="pl-1 min-w-7">
+								{#if entry.icon}
+									<img src={asIconUrl(entry.id, entry.icon)} alt="?" class="rounded-full w-5 h-5" />
+								{:else}
+									<div></div>
+								{/if}
+							</td>
+							<td class="whitespace-nowrap text-ellipsis overflow-hidden max-w-0">
 								{entry.name}
-							</p>
-							<div>
+							</td>
+							<td>
 								<span class="fi fi-{getLocaleValue(entry.locale).a2c} fis rounded-full mr-1" />
-							</div>
-						</div>
-						<div class="border-b border-l border-gray-400">
-							<p class="mx-2">{asPhoneNumber(entry.id)}</p>
-						</div>
+							</td>
+							<td class="border-l border-gray-400 group hover:bg-white hover:bg-opacity-50 active:bg-opacity-25 duration-100">
+								<button class="flex flex-row justify-between place-items-center w-full"
+									on:click={() => copyNumber(entry.id)}>
+
+									<p class="mx-2">{asPhoneNumber(entry.id)}</p>
+									<i class="max-lg:hidden fa-solid fa-copy pr-2 opacity-0 group-hover:opacity-25 group-active:opacity-25 duration-100"></i>
+								</button>
+							</td>
+						</tr>
 					{/each}
-				</div>
+				</table>
 			{/key}
 		</div>
 		{#if loading}
@@ -85,14 +119,23 @@
 
 <style>
 	.list {
-		display: grid;
+		/* display: grid;
 		grid-template-columns: 32px 1fr 1fr;
-		grid-template-rows: repeat(20, 1fr);
-		align-content: space-between;
-		height: 675px; /* 20*32px */
+		grid-template-rows: repeat(21, 1fr);
+		align-content: space-between; */
+		/* height: 672px; */
+		width: 100%;
 	}
 
-	.list > :nth-last-child(-n + 3) {
+	.list > * {
+		height: 32px;
+	}
+
+	.list > :nth-child(2n) {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+
+	.list > :last-child {
 		border-bottom: none;
 	}
 
