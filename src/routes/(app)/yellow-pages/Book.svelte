@@ -58,9 +58,9 @@
 		<div id="navbar">
 			<NavBar {page} {totalPages} on:flip />
 		</div>
-		<div class="overflow-y-auto p-1" style="height: 712px;">
-			{#key entries}
-				<table class="list w-full [&_p]:max-md:text-xs [&_td]:max-md:text-xs [&_*]:text-gray-800 [&_p]:font-mono [&_td]:font-mono" in:fade={{ duration: 400 }}>
+		{#key entries}
+			<div class="overflow-y-auto p-1" style="height: 712px;" in:fade={{ duration: 400 }}>
+				<table class="list w-full [&_p]:max-md:text-xs [&_td]:max-md:text-xs [&_*]:text-gray-800 [&_p]:font-mono [&_td]:font-mono">
 					<colgroup>
 						<col>
 						<col class="w-1/2">
@@ -104,8 +104,8 @@
 						</tr>
 					{/each}
 				</table>
-			{/key}
-		</div>
+			</div>
+		{/key}
 		{#if loading}
 			<div class="absolute top-10 left-2 bottom-10 right-2 bg-black bg-opacity-20 rounded-lg" id="loading-bg" out:fade={{ duration: 400 }}>
 				<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" out:scale={{ duration: 400 }}>
