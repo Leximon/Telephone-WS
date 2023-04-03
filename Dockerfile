@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . .
 
 RUN npm install -g pnpm
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 RUN pnpm audit fix
 RUN pnpm build
 
@@ -16,7 +16,7 @@ WORKDIR /app
 COPY --from=0 /app/package*.json ./
 COPY --from=0 /app/pnpm*.yaml ./
 RUN npm install -g pnpm
-RUN pnpm install --frozen-lockfile --production --ignore-scripts
+RUN pnpm install --production --ignore-scripts
 RUN pnpm audit fix
 ENV DB_CONN_STRING=$DB_CONN_STRING
 COPY --from=0 /app/build ./
