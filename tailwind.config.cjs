@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
     extend: {
+      borderWidth: {
+        1: "1px",
+      },
       gridTemplateRows: {
         "20": "repeat(20, minmax(0, 1fr))",
       },

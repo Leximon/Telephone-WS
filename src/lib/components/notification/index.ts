@@ -2,12 +2,13 @@ import { writable } from "svelte/store";
 
 export const notifications = writable(<Notification[]>[])
 
-export function showNotification(type: string, duration: number, message: string) {
+export function showNotification(type: string, duration: number, message: string, html: boolean) {
     const notification = {
         type,
         start: Date.now(),
         duration,
-        message
+        message,
+        html
     };
     notifications.update(notifications => {
         notifications.push(notification);
@@ -21,16 +22,16 @@ export function showNotification(type: string, duration: number, message: string
             
 }
 
-export function showError(message: string, duration = 3000) {
-    showNotification("error", duration, message);
+export function showError(message: string, duration = 3000, html = false) {
+    showNotification("error", duration, message, html);
 }
 
 export function showUnknownError() {
-    showNotification("error", 5000, "Ein unerwarteter Fehler ist aufgetreten. Siehe Konsole für mehr Informationen.");
+    showNotification("error", 5000, "Ein unerwarteter Fehler ist aufgetreten. Siehe Konsole für mehr Informationen.", false);
 }
 
-export function showInfo(message: string, duration = 3000) {
-    showNotification("info", duration, message);
+export function showInfo(message: string, duration = 3000, html = false) {
+    showNotification("info", duration, message, html);
 }
 
 export type Notification = {
@@ -38,4 +39,5 @@ export type Notification = {
     start: number;
     duration: number;
     message: string;
+    html: boolean;
 }

@@ -9,7 +9,13 @@
     });
 </script>
 
-<span class="text-white">{notification.message}</span>
+<span class="text-white">
+    {#if notification.html}
+        {@html notification.message}
+    {:else}
+        {notification.message}
+    {/if}
+</span>
 <div class="progress" style:transition-duration="{notification.duration}ms" style:transform="scale({scale}, 1)">
 
 </div>

@@ -2,8 +2,10 @@
     import { page } from "$app/stores";
 </script>
 
-<h1>Error</h1>
-<p>{$page.status}: {$page.error?.message ?? "Unknown"}</p>
+<div class="h-screen flex flex-col justify-center">
+    <h1>Error</h1>
+    <p>{$page.status}: {$page.error?.message ?? "Unknown"}</p>
+</div>
 
 <style>
     h1 {

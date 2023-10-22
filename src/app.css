@@ -36,10 +36,114 @@ input {
     outline: none;
 
     background: hsla(0, 0%, 0%, 0.2);
-    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     transition: .15s ease-out;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+    @apply border-gray-400;
+}
+
+input::placeholder {
+    color: hsl(0, 0%, 24%);
 }
 
 *:not(h1,h2,h3,h4,h5,h6) {
     font-size: 20px;
+}
+
+/* button */
+button:not(.transparent) {
+    @apply border-1 border-transparent rounded-md py-1 px-2 h-min text-base duration-150 ease-out bg-gray-500 cursor-pointer text-white;
+}
+button:not(.transparent) > * {
+    @apply text-white;
+}
+button:hover:not(:disabled):not(.transparent) {
+    @apply bg-gray-400 border-white;
+    box-shadow: 0 0 0 4px rgba(83, 83, 83, 0.66);
+}
+button:active:not(:disabled):not(.transparent) {
+    @apply bg-white border-transparent;
+    box-shadow: 0 0 0 2px rgba(83, 83, 83, 0.33);
+}
+button:disabled:not(.transparent) {
+    @apply bg-gray-400 border-transparent text-gray-400 cursor-default;
+}
+
+/* teal button */
+button.teal {
+    @apply bg-teal-600;
+}
+button.teal:hover:not(:disabled) {
+    @apply bg-teal-500 border-teal-200;
+    box-shadow: 0 0 0 4px rgba(66, 126, 123, 0.66);
+}
+button.teal:active:not(:disabled) {
+    @apply bg-teal-700 border-transparent;
+    box-shadow: 0 0 0 2px rgba(66, 126, 123, 0.33);
+}
+button.teal:disabled {
+    @apply bg-teal-800 border-transparent text-gray-400 cursor-default;
+}
+button.teal:disabled > * {
+    @apply text-gray-400;
+}
+
+/* teal button */
+button.green {
+    @apply bg-green-600;
+}
+button.green:hover:not(:disabled) {
+    @apply bg-green-500 border-green-200;
+    box-shadow: 0 0 0 4px rgba(74, 126, 66, 0.66);
+}
+button.green:active:not(:disabled) {
+    @apply bg-green-700 border-transparent;
+    box-shadow: 0 0 0 2px rgba(68, 126, 66, 0.33);
+}
+button.green:disabled {
+    @apply bg-green-800 border-transparent text-gray-400 cursor-default;
+}
+button.green:disabled > * {
+    @apply text-gray-400;
+}
+
+/* blue button */
+button.blue {
+    @apply bg-sky-600;
+}
+button.blue:hover:not(:disabled) {
+    @apply bg-sky-500 border-sky-200;
+    box-shadow: 0 0 0 4px rgba(66, 82, 126, 0.66);
+}
+button.blue:active:not(:disabled) {
+    @apply bg-sky-700 border-transparent;
+    box-shadow: 0 0 0 2px rgba(66, 72, 126, 0.33);
+}
+button.blue:disabled {
+    @apply bg-sky-800 border-transparent text-gray-400 cursor-default;
+}
+button.blue:disabled > * {
+    @apply text-gray-400;
+}
+
+/* red button */
+button.red {
+    @apply bg-red-500;
+}
+button.red:hover:not(:disabled) {
+    @apply bg-red-400 border-red-200;
+    box-shadow: 0 0 0 4px rgba(126, 66, 66, 0.66);
+}
+button.red:active:not(:disabled) {
+    @apply bg-red-700 border-transparent;
+    box-shadow: 0 0 0 2px rgba(126, 66, 66, 0.33);
+}
+button.red:disabled {
+    @apply bg-red-800 border-transparent text-gray-400 cursor-default;
+}
+button.red:disabled > * {
+    @apply text-gray-400;
 }
