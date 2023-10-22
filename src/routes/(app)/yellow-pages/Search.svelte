@@ -52,7 +52,7 @@
     <LocaleSelectMenu {locale} on:select={onLocaleSelect}/>
     <div class="w-px h-full py-1"><div class="w-px h-full bg-gray-400"></div></div>
 
-    <button on:click={search} class="w-12 h-12 duration-150 hover:bg-slate-300 rounded-r-lg">
+    <button on:click={search} class="transparent w-12 h-12 duration-150 hover:bg-slate-300 rounded-r-lg">
         <i class="fa-solid fa-magnifying-glass text-gray-800 text-2xl mx-2"></i>
     </button>
 </div>

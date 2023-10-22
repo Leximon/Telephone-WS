@@ -94,7 +94,7 @@
 								<span class="fi fi-{getLocaleValue(entry.locale).a2c} fis rounded-full mr-1" />
 							</td>
 							<td class="border-l border-gray-400 group hover:bg-white hover:bg-opacity-50 active:bg-opacity-25 duration-100">
-								<button class="flex flex-row justify-between place-items-center w-full"
+								<button class="transparent flex flex-row justify-between place-items-center w-full"
 									on:click={() => copyNumber(entry.id)}>
 
 									<p class="mx-2">{asPhoneNumber(entry.id)}</p>
